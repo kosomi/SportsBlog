@@ -1,0 +1,12 @@
+body { 
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.spacer {
+	padding: 10px;
+	margin-top: 20px;
+}
+
+a {
+  color: #00B7FF;
+}

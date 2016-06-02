@@ -1,0 +1,46 @@
+extends layout
+
+block content
+    header.intro-header(style="background-color: #333;")
+        .container
+            .row
+                .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+                    .post-heading
+                        h1 #{article.title}
+                        h2.subheading #{article.subtitle}
+                        span.meta
+                            | Posted by #{article.author}
+                            | on #{moment(article.created_at).format('MMMM Do YYYY, h:mm:ss')}
+    article
+        .container
+            .row
+                .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+                    p #{article.body}
+                    br
+                    br
+
+                    h4 Add a Comment
+                    p
+                        form.comment-form(method='post', action='/articles/comments/add/#{article._id}' id='comments')
+                            input(name='article_id', type='hidden', value='#{article._id}')
+                            .form-group
+                                label Subject
+                                input.form-control(type='text', name='comment_subject')
+                            .form-group
+                                label Author
+                                input.form-control(type='text', name='comment_author')
+                            .form-group
+                                label Email
+                                input.form-control(type='text', name='comment_email')
+                            .form-group
+                                label Body
+                                input.form-control(type='text', name='comment_body' id='body')
+                            input.btn.btn-default(name="submit", type='submit', value="Add Comment")
+
+                        br
+                        br
+                        h3 Comments
+                        each comment, i in article.comments
+                            div.well
+                                h4 Posted by #{comment.comment_author}
+                                p #{comment.comment_body}

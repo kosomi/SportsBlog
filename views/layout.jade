@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/clean-blog.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+
+    include ./includes/navbar.jade
+
+    block content
+
+    include ./includes/footer.jade
+
+    script(src="/javascripts/jquery.min.js")
+    script(src="/javascripts/bootstrap.min.js")
+    script(src="/javascripts/clean-blog.min.js")
+    script(src="/javascripts/main.js")
