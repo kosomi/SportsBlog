@@ -33,16 +33,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.static(path.join(__dirname, 'public')));
 
-// expressSession
 app.use(session({
   secret: 'secret',
   resave: false,
   savUninitialized: true
 }))
 
-// expressValidator 
 app.use(expressValidator({
  customValidators: {
     isArray: function(value) {
@@ -60,12 +58,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 app.use('/', routes);
 app.use('/articles', articles);
 app.use('/categories', categories);
 app.use('/manage', manage);
- 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -73,7 +69,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
- 
+
+// error handlers
 
 // development error handler
 // will print stacktrace
@@ -86,6 +83,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {

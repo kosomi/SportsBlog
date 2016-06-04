@@ -1,0 +1,37 @@
+extends layout
+
+block content 
+ 
+    header.intro-header(style="background-image: url('../img/about-bg.jpg')")
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+            .site-heading
+              h1 Manage Category
+              hr.small
+              span.subheading A Clean Blog Theme by Start Bootstrap
+    // Main Content
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .post-preview 
+
+             a(href='/manage/categories/add' class='btn btn-default') Add Categories
+
+             h1= title
+              small 
+                 a(href='/manage/manage_article') Manage Articles
+
+             br
+             table(class='table table-stripped')
+              tr  
+                th title
+                th description
+                th  
+               each category, i in categories 
+               tr
+                td #{category.title}
+                td #{category.description}
+                td 
+                 a(href='/manage/categories/edit/#{category._id}' class='btn btn-primary') Edit
+        

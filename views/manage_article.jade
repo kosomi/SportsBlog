@@ -1,0 +1,38 @@
+extends layout
+
+block content 
+ 
+    header.intro-header(style="background-image: url('../img/about-bg.jpg')")
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+            .site-heading
+              h1 Manage Articles
+              hr.small
+              span.subheading A Clean Blog Theme by Start Bootstrap
+    // Main Content
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .post-preview 
+
+             a(class="btn btn-tiny btn-primary" href='/manage/articles/add') Create Article
+
+             h1= title
+              small 
+                 a(href='/manage/manage_category') Manage Categories
+
+             br
+             table(class='table table-stripped')
+              tr  
+                th title
+                th author
+                th description
+                th  
+               each article, i in articles 
+               tr
+                td #{article.title}
+                td #{article.author}
+                td #{moment(article.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                td 
+                 a(href='/manage/articles/edit/#{article._id}' class='btn btn-primary') Edit 
