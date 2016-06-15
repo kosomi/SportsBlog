@@ -25,7 +25,7 @@ show databases, use..        <br>
 ex) express sportblog       <br>
        <br>
 7. Package.json 디펜던시 추가       <br>
-express-messages, express-session, express-validator, connect-flash, moment, mongoose       <br>
+express-session, express-validator, express-messages, connect-flash, moment, mongoose       <br>
 "main":"bin/www"       <br>
        <br>
 8 express-session 추가       <br>
