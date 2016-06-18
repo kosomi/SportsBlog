@@ -35,6 +35,7 @@ express-session, express-validator, express-messages, connect-flash, moment, mon
 var session = require('express-session');       <br>
 express-validator       <br>
 connect-flash       <br>
+app.locals.moment = require('moment');       <br>
        <br>
 11. app.js에 몽구스 추가 (mongoose.js 참조)       <br>
 var mongoose = require('mongoose');       <br>
